@@ -27,7 +27,7 @@ pip install -r requirements.txt
 
 2. Run the script:
 ```
-python TwimageSaver.py
+python main.py
 ```
 
 3. Enter a Twitter username and the number of images to download (leave blank for all).
