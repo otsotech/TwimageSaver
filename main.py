@@ -45,6 +45,8 @@ for tweet in tqdm(tweets_with_media):
             continue
         media_url = media['media_url_https']
         extension = os.path.splitext(media_url)[1]
+        
+        # Create a filename based on the date and number of images on that date
         date_str = datetime.strftime(tweet.created_at, '%d%m%y')
         if date_str not in date_counts:
             date_counts[date_str] = 1
@@ -54,6 +56,8 @@ for tweet in tqdm(tweets_with_media):
             filename = f"{date_str} ({date_counts[date_str]}){extension}"
         else:
             filename = f"{date_str}{extension}"
+            
+        # Download the image and save it to the directory
         filepath = f"{directory}/{filename}"
         try:
             urllib.request.urlretrieve(media_url, filepath)
